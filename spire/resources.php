@@ -113,9 +113,5 @@ class Resource {
         return $uniqueID;
     }
 
-    private function build_response() {
-
-    }
-
 
 }
