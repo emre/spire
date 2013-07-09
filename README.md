@@ -72,3 +72,9 @@ $RESOURCE_CLASS = 'CustomResource';
 ```sh
  $ vendor/bin/phpunit tests/SpireTest.php
 ```
+
+## note
+ - This a _remembering PHP project_ for me since I did not write a single line of PHP for like 3 years. Any contributions to make it better will be accepted.
+
+ - see <a href="http://github.com/fatiherikli">@fatiherikli</a>'s <a href="http://github.com/fatiherikli/kule">kule</a> for a python/better alternative.
+
