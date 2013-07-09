@@ -1,0 +1,6 @@
+{
+    "require": {
+        "silex/silex": "1.*",
+        "getme/mongodb-silex-provider": "dev-master"
+    }
+}
