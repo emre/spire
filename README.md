@@ -13,7 +13,7 @@ todo
 
 | Method        | Path          |           Action              |
 | ------------- |---------------| ------------------------------|
-| GET           | /users        | Returns all records. You can give limit and offset parameters to paginate records.     |
+| GET           | /users        | Returns all records. **offset** and **limit** parameters supported for pagination     |
 | GET           | /users/:id    | Returns a single document     |
 | POST          | /users        | Creates a new document        |
 | PUT           | /users/:id    | Replaces an existing document |
