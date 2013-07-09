@@ -45,7 +45,6 @@ class CustomResource extends \Spire\Resources\Resource {
         return $data;
     }
 
-
 }
 
 ```
