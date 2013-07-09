@@ -1,6 +1,8 @@
 {
     "require": {
         "silex/silex": "1.*",
-        "getme/mongodb-silex-provider": "dev-master"
+        "getme/mongodb-silex-provider": "dev-master",
+        "phpunit/phpunit": "3.7.*",
+        "guzzle/guzzle": "3.5.0"
     }
 }

@@ -87,7 +87,7 @@ $app->put('/{collection_name}/{id}/', function(Application $app, Request $reques
 
     $resource->replaceItem(new MongoId($id), $request->request->json_content);
 
-    return new Response('', '204', array(), TRUE);
+    return new Response('', '202', array(), TRUE);
 
 });
 
