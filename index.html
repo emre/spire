@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Spire by emre</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Spire</h1>
+        <h2>REST interface for mongodb</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/emre/spire/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/emre/spire/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/emre/spire" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="spire" class="anchor" href="#spire"><span class="octicon octicon-link"></span></a>spire</h1>
+
+<p>spire is a REST interface for mongodb instances.</p>
+
+<p><img src="http://i.imgur.com/wLO0OxJ.png" alt="spire"></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>installation</h2>
+
+<p>clone the repository.</p>
+
+<div class="highlight"><pre> <span class="nv">$ </span>git clone https://github.com/emre/spire.git
+</pre></div>
+
+<p>install the dependencies.</p>
+
+<div class="highlight"><pre> <span class="nv">$ </span>composer install
+</pre></div>
+
+<p>that's all. next is step is <a href="http://silex.sensiolabs.org/doc/web_servers.html">configuring your webserver</a>.</p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>getting started</h2>
+
+<p>you can test your api from your command line. </p>
+
+<p><strong>getting a list of items</strong></p>
+
+<div class="highlight"><pre>curl --dump-header -X get <span class="s1">'http://localhost:8090/users/'</span>
+</pre></div>
+
+<p><strong>adding an item</strong></p>
+
+<div class="highlight"><pre>curl --dump-header - -H <span class="s2">"Content-Type: application/json"</span> -X POST --data <span class="s1">'{"first_name":"John", "last_name":"Doe", "location": "Miami, FL"}'</span> http://localhost/users/
+</pre></div>
+
+<p><strong>updating an item</strong></p>
+
+<div class="highlight"><pre>curl --dump-header - -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s1">'{"first_name":"Jane", "last_name": "Brown"}'</span> http://localhost/users/:USER_ID:/
+</pre></div>
+
+<h2>
+<a name="bundles" class="anchor" href="#bundles"><span class="octicon octicon-link"></span></a>bundles</h2>
+
+<p>you can represent entries in your way. add your custom Resource class to custom_resource.php like this:</p>
+
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">CustomResource</span> <span class="k">extends</span> <span class="nx">\Spire\Resources\Resource</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">build_users_bundle</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$data</span><span class="p">[</span><span class="s2">"fullname"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s2">"%s %s"</span><span class="p">,</span> <span class="nv">$data</span><span class="p">[</span><span class="s2">"first_name"</span><span class="p">],</span> <span class="nv">$data</span><span class="p">[</span><span class="s2">"last_name"</span><span class="p">]);</span>
+        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+</pre></div>
+
+<p>point it out in your settings.py:</p>
+
+<div class="highlight"><pre><span class="nv">$RESOURCE_CLASS</span> <span class="o">=</span> <span class="s1">'CustomResource'</span><span class="p">;</span>
+</pre></div>
+
+<h2>
+<a name="supported-methods" class="anchor" href="#supported-methods"><span class="octicon octicon-link"></span></a>supported methods</h2>
+
+<table>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Action</th>
+</tr>
+<tr>
+<td>GET</td>
+<td>/users</td>
+<td>Returns all records. <strong>offset</strong> and <strong>limit</strong> parameters supported for pagination</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>/users/:id</td>
+<td>Returns a single document</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/users</td>
+<td>Creates a new document</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/users/:id</td>
+<td>Replaces an existing document</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/users/:id</td>
+<td>Removes an existing document</td>
+</tr>
+</table><h2>
+<a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>running tests</h2>
+
+<div class="highlight"><pre> <span class="nv">$ </span>vendor/bin/phpunit tests/SpireTest.php
+</pre></div>
+
+<h2>
+<a name="note" class="anchor" href="#note"><span class="octicon octicon-link"></span></a>note</h2>
+
+<ul>
+<li><p>This a <em>remembering PHP project</em> for me since I did not write a single line of PHP for like 3 years. Any contributions to make it better will be accepted.</p></li>
+<li><p>see <a href="http://github.com/fatiherikli">@fatiherikli</a>'s <a href="http://github.com/fatiherikli/kule">kule</a> for a python/better alternative.</p></li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
