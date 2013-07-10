@@ -48,7 +48,7 @@ class CustomResource extends \Spire\Resources\Resource {
 }
 
 ```
-point it out in your settings.py:
+point it out in your settings.php:
 ``` php
 $RESOURCE_CLASS = 'CustomResource';
 ```
