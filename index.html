@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Spire : REST interface for mongodb" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Spire by emre</title>
+    <title>Spire</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Spire</h1>
-        <h2>REST interface for mongodb</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/emre/spire">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/emre/spire/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/emre/spire/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/emre/spire" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Spire</h1>
+          <h2 id="project_tagline">REST interface for mongodb</h2>
 
-    <div class="container">
-      <section id="main_content">
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/emre/spire/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/emre/spire/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="spire" class="anchor" href="#spire"><span class="octicon octicon-link"></span></a>spire</h1>
 
@@ -86,7 +89,7 @@
 
 </pre></div>
 
-<p>point it out in your settings.py:</p>
+<p>point it out in your settings.php:</p>
 
 <div class="highlight"><pre><span class="nv">$RESOURCE_CLASS</span> <span class="o">=</span> <span class="s1">'CustomResource'</span><span class="p">;</span>
 </pre></div>
@@ -95,11 +98,12 @@
 <a name="supported-methods" class="anchor" href="#supported-methods"><span class="octicon octicon-link"></span></a>supported methods</h2>
 
 <table>
-<tr>
+<thead><tr>
 <th>Method</th>
 <th>Path</th>
 <th>Action</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>GET</td>
 <td>/users</td>
@@ -125,6 +129,7 @@
 <td>/users/:id</td>
 <td>Removes an existing document</td>
 </tr>
+</tbody>
 </table><h2>
 <a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>running tests</h2>
 
@@ -141,6 +146,15 @@
       </section>
     </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Spire maintained by <a href="https://github.com/emre">emre</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
